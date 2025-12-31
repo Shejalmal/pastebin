@@ -6,7 +6,6 @@ COPY src ./src
 RUN mvn clean package -DskipTests
 
 # Stage 2: Create the runtime image
-# CHANGE THIS LINE BELOW:
 FROM eclipse-temurin:17-jre-jammy
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
